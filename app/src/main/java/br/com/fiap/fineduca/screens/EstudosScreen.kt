@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -54,9 +55,16 @@ fun EstudosScreen(modifier: Modifier = Modifier, navController: NavController) {
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFC6C5C5)),
                 shape = RoundedCornerShape(0.dp),
                 onClick = { navController.navigate("assunto") }) {
-                Text(text = "Assunto Tal: ", color = Color.Black, fontSize = 18.sp)
-                Image(modifier = Modifier
-                    .size(24.dp),painter = voltarImage, contentDescription = "Retomar")
+
+                Row(modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "Assunto Tal: ", color = Color.Black, fontSize = 18.sp)
+                    Image(modifier = Modifier
+                        .size(24.dp),painter = voltarImage, contentDescription = "Retomar")
+                }
+
             }
 
             Spacer(modifier = Modifier.height(5.dp))
@@ -66,9 +74,18 @@ fun EstudosScreen(modifier: Modifier = Modifier, navController: NavController) {
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFC6C5C5)),
                 shape = RoundedCornerShape(0.dp),
                 onClick = { navController.navigate("assunto_taxas") }) {
-                Text(text = "Taxas de Câmbio: ", color = Color.Black, fontSize = 18.sp)
-                Image(modifier = Modifier
-                    .size(24.dp),painter = voltarImage, contentDescription = "Retomar")
+                Row(modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically) {
+
+                    Text(text = "Taxas de Câmbio: ", color = Color.Black, fontSize = 18.sp)
+                    Image(modifier = Modifier
+                        .size(24.dp),painter = voltarImage,
+                        contentDescription = "Retomar",
+                    )
+
+                }
             }
 
             Spacer(modifier = Modifier.height(128.dp))
