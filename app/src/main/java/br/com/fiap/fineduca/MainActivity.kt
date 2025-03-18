@@ -4,38 +4,28 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import br.com.fiap.fineduca.screens.TaxasCambioScreen
 import br.com.fiap.fineduca.screens.AssuntoScreen
 import br.com.fiap.fineduca.screens.BaseScreen
 import br.com.fiap.fineduca.screens.EstudosScreen
 import br.com.fiap.fineduca.screens.HomeScreen
-import br.com.fiap.fineduca.screens.TaxasCambioScreen
 import br.com.fiap.fineduca.screens.content.CambioMoedas
 import br.com.fiap.fineduca.screens.content.LeisDinheiroContent
 import br.com.fiap.fineduca.ui.theme.FinEducaTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +41,7 @@ class MainActivity : ComponentActivity() {
                 }
 
                 val baseScreenModifier = Modifier.fillMaxSize()
-                
+
                 NavHost(navController = navController, startDestination = "home" ) {
                     composable("home") {
                         BaseScreen(modifier = baseScreenModifier, topBar = {
@@ -60,7 +50,15 @@ class MainActivity : ComponentActivity() {
                             HomeScreen(navController = navController)
                         }
                     }
-                        
+
+                    composable("taxas_cambio") {
+                        BaseScreen(modifier = baseScreenModifier, topBar = {
+                            Text(text = "Taxas de Câmbio - R$", fontSize = 32.sp, fontWeight = FontWeight.Bold)
+                        }, bottomBar = { voltarButton() }) {
+                            TaxasCambioScreen(navController = navController)
+                        }
+                    }
+
                     composable("estudos") {
                         BaseScreen(modifier = baseScreenModifier, topBar = {
                             Row(verticalAlignment = Alignment.CenterVertically) {
