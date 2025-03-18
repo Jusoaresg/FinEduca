@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -60,7 +61,8 @@ private fun CenterContent(modifier: Modifier = Modifier, navController: NavContr
             onClick = { navController.navigate("estudos") }) {
                 Text(text = "Meus Estudos", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.Black)
                 Image(modifier = Modifier
-                    .size(26.dp),
+                    .size(26.dp)
+                    .offset(x = 5.dp),
                     painter = painterResource(id = R.drawable.seta_para_a_direita), contentDescription = "seta-para-direita")
         }
 
