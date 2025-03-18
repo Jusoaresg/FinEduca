@@ -5,7 +5,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import br.com.fiap.fineduca.network.CambioApiService
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://economia.awesomeapi.com.br/json/"
+    private const val BASE_URL = "https://economia.awesomeapi.com.br/"
 
     val api: CambioApiService by lazy {
         Retrofit.Builder()

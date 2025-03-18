@@ -36,7 +36,8 @@ class MainActivity : ComponentActivity() {
 
                 val voltarButton: @Composable () -> Unit = {
                     Button(colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF323131)), onClick = { navController.popBackStack() }) {
-                        Text(text = "Voltar")
+                        Text(text = "Voltar",
+                        color = Color.White)
                     }
                 }
 
@@ -89,16 +90,8 @@ class MainActivity : ComponentActivity() {
                             AssuntoScreen(content = { CambioMoedas() })
                         }
                     }
-
-                    composable("taxas_cambio") {
-                        BaseScreen(modifier = baseScreenModifier, topBar = {
-                            Text(text = "Taxas de Câmbio - R$", fontSize = 32.sp, fontWeight = FontWeight.Bold)
-                        }, bottomBar = { voltarButton() }) {
-                            TaxasCambioScreen(navController = navController)
-                        }
                     }
                 }
             }
         }
     }
-}
