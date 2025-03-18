@@ -25,6 +25,8 @@ import br.com.fiap.fineduca.screens.BaseScreen
 import br.com.fiap.fineduca.screens.EstudosScreen
 import br.com.fiap.fineduca.screens.HomeScreen
 import br.com.fiap.fineduca.screens.TaxasCambioScreen
+import br.com.fiap.fineduca.screens.content.CambioMoedas
+import br.com.fiap.fineduca.screens.content.LeisDinheiroContent
 import br.com.fiap.fineduca.ui.theme.FinEducaTheme
 
 class MainActivity : ComponentActivity() {
@@ -42,48 +44,48 @@ class MainActivity : ComponentActivity() {
 
                 val baseScreenModifier = Modifier.fillMaxSize()
                 
-                    NavHost(navController = navController, startDestination = "home" ) {
-                        composable("home") {
-                            BaseScreen(modifier = baseScreenModifier, topBar = {
-                                Text(text = "FinEduca", fontSize = 42.sp, fontWeight = FontWeight.Bold)
-                            }, bottomBar = {}) {
-                                HomeScreen(navController = navController)
-                            }
+                NavHost(navController = navController, startDestination = "home" ) {
+                    composable("home") {
+                        BaseScreen(modifier = baseScreenModifier, topBar = {
+                            Text(text = "FinEduca", fontSize = 42.sp, fontWeight = FontWeight.Bold)
+                        }, bottomBar = {}) {
+                            HomeScreen(navController = navController)
                         }
+                    }
                         
-                        composable("estudos") {
-                            BaseScreen(modifier = baseScreenModifier, topBar = {
-                                Text(text = "Meus Estudo", fontSize = 32.sp, fontWeight = FontWeight.Bold)
-                            }, bottomBar = { voltarButton() }) {
-                                EstudosScreen(modifier = Modifier, navController = navController)
-                            }
+                    composable("estudos") {
+                        BaseScreen(modifier = baseScreenModifier, topBar = {
+                            Text(text = "Meus Estudo", fontSize = 32.sp, fontWeight = FontWeight.Bold)
+                        }, bottomBar = { voltarButton() }) {
+                            EstudosScreen(modifier = Modifier, navController = navController)
                         }
-                        
-                        composable("assunto") {
-                            BaseScreen(modifier = baseScreenModifier, topBar = {
-                                Text(text = "Educação Financeira", fontSize = 32.sp, fontWeight = FontWeight.Bold)
-                            }, bottomBar = { voltarButton() }) {
-                                AssuntoScreen(texto = "A educação financeira é essencial para construir um futuro estável e próspero. Muitas pessoas enfrentam dificuldades financeiras não por falta de renda, mas por não saberem como administrar seu dinheiro corretamente. Para alcançar a independência financeira, é fundamental seguir princípios que ajudam a ganhar, proteger e multiplicar os recursos. A seguir, conheça cinco leis do dinheiro que podem transformar sua relação com as finanças.")
-                            }
-                        }
+                    }
 
-                        composable("assunto_taxas") {
-                            BaseScreen(modifier = baseScreenModifier, topBar = {
-                                Text(text = "O que são Taxas de Câmbio?", fontSize = 30.sp, fontWeight = FontWeight.Bold)
-                            }, bottomBar = { voltarButton() }) {
-                                AssuntoScreen(texto = "O câmbio é o processo de conversão de uma moeda para outra. Ele está presente em diversas situações do dia a dia, como viagens internacionais, comércio exterior e investimentos. Entender como funciona o câmbio é essencial para tomar decisões financeiras mais seguras e vantajosas.")
-                            }
+                    composable("assunto") {
+                        BaseScreen(modifier = baseScreenModifier, topBar = {
+                            Text(text = "As 5 Leis do Dinheiro", fontSize = 32.sp, fontWeight = FontWeight.Bold)
+                        }, bottomBar = { voltarButton() }) {
+                            AssuntoScreen(content = { LeisDinheiroContent() })
                         }
+                    }
 
-                        composable("taxas_cambio") {
-                            BaseScreen(modifier = baseScreenModifier, topBar = {
-                                Text(text = "Taxas de Câmbio - R$", fontSize = 32.sp, fontWeight = FontWeight.Bold)
-                            }, bottomBar = { voltarButton() }) {
-                                TaxasCambioScreen(navController = navController)
-                            }
+                    composable("assunto_taxas") {
+                        BaseScreen(modifier = baseScreenModifier, topBar = {
+                            Text(text = "Como Funciona o Câmbio de Moedas?", fontSize = 22.sp, fontWeight = FontWeight.Bold)
+                        }, bottomBar = { voltarButton() }) {
+                            AssuntoScreen(content = { CambioMoedas() })
+                        }
+                    }
+
+                    composable("taxas_cambio") {
+                        BaseScreen(modifier = baseScreenModifier, topBar = {
+                            Text(text = "Taxas de Câmbio - R$", fontSize = 32.sp, fontWeight = FontWeight.Bold)
+                        }, bottomBar = { voltarButton() }) {
+                            TaxasCambioScreen(navController = navController)
                         }
                     }
                 }
             }
         }
+    }
 }

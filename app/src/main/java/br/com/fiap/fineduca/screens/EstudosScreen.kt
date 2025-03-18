@@ -60,7 +60,7 @@ fun EstudosScreen(modifier: Modifier = Modifier, navController: NavController) {
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "Assunto Tal: ", color = Color.Black, fontSize = 18.sp)
+                    Text(text = "As 5 Leis do Dinheiro: ", color = Color.Black, fontSize = 18.sp)
                     Image(modifier = Modifier
                         .size(24.dp),painter = voltarImage, contentDescription = "Retomar")
                 }
@@ -79,7 +79,7 @@ fun EstudosScreen(modifier: Modifier = Modifier, navController: NavController) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically) {
 
-                    Text(text = "Taxas de Câmbio: ", color = Color.Black, fontSize = 18.sp)
+                    Text(text = "Como Funciona o Câmbio de Moedas?", color = Color.Black, fontSize = 18.sp)
                     Image(modifier = Modifier
                         .size(24.dp),painter = voltarImage,
                         contentDescription = "Retomar",
